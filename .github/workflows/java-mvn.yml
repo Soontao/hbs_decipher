@@ -28,3 +28,10 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+
+    - uses: DeLaGuardo/setup-graalvm@master
+      with:
+        graalvm-version: '20.3.0.java8'
+    - run: gu install native-image
+    - run: native-image -jar hbs_decipher.jar
+      working-directory: target
