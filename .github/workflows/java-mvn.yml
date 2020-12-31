@@ -25,6 +25,8 @@ jobs:
       - name: Add 'cl.exe' to PATH
         uses: ilammy/msvc-dev-cmd@v1
         if: runner.os == 'Windows'
+        with:
+          sdk: 7.1
 
       - name: Build with Maven
         run: mvn -B package --file pom.xml
@@ -46,5 +48,5 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: hbs_decipher
+          name: hbs_decipher_${{ runner.os }}.zip
           path: target/hbs_decipher*
