@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest]
 
     steps:
       - uses: actions/checkout@v2
@@ -22,11 +22,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Add 'cl.exe' to PATH
-        uses: ilammy/msvc-dev-cmd@v1
-        if: runner.os == 'Windows'
-        with:
-          sdk: 7.1
 
       - name: Build with Maven
         run: mvn -B package --file pom.xml
@@ -37,11 +32,6 @@ jobs:
 
       - name: install native image (linux/macos)
         run: gu install native-image
-        if: runner.os == 'Linux' || runner.os == 'macOS'
-
-      - name: install native image (windows)
-        run: gu.cmd install native-image
-        if: runner.os == 'Windows'
 
       - run: native-image -jar hbs_decipher.jar
         working-directory: target
