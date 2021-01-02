@@ -36,9 +36,6 @@ jobs:
       - run: native-image -jar hbs_decipher.jar
         working-directory: target
       
-      - run: native-image -jar hbs_decipher.jar lib_hbs --shared
-        working-directory: target
-
       - uses: actions/upload-artifact@v2
         with:
           name: hbs_decipher_${{ runner.os }}.zip
