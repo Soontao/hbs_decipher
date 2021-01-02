@@ -5,23 +5,28 @@
 
 	<groupId>io.github.mikiya83</groupId>
 	<artifactId>hbs_decipher</artifactId>
-	<version>1.6.1</version>
+	<version>1.6.2</version>
 	<packaging>jar</packaging>
 
 	<name>HBS Decipher tool</name>
 	<description>It is a tool to decipher files ciphered with Hybrid Backup Sync with cloud providers.</description>
-	<url>https://github.com/Mikiya83/hbs_decipher</url>
+	<url>https://github.com/Soontao/hbs_decipher</url>
 
 	<developers>
 		<developer>
 			<name>TRITZ Yoann</name>
 			<url>https://keybase.io/yoannttz</url>
 		</developer>
+		<developer>
+			<name>Theo Sun</name>
+			<url>http://github.com/Soontao</url>
+		</developer>
 	</developers>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<licenses>
@@ -76,12 +81,12 @@
 								<descriptorRef>jar-with-dependencies</descriptorRef>
 							</descriptorRefs>
 							<appendAssemblyId>false</appendAssemblyId>
-							<finalName>${project.artifactId}</finalName>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
 
 		</plugins>
+		<finalName>${project.artifactId}</finalName>
 	</build>
 </project>
