@@ -1,5 +1,7 @@
 # Hybrid Backup Sync Decipher
 
+![Native Image Build](https://github.com/Soontao/hbs_decipher/workflows/Native%20Image%20Build/badge.svg)
+
 Currently there is no official tool to decipher files from Hybrid Backup Sync (on QNAP devices) on all plateform.
 I've made this tool with some ideas : light (<1MB), fast (<3s for 300MB on my computer), universal, open source, with as less as possible dependencies.
 
