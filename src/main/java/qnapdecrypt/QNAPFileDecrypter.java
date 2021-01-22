@@ -312,7 +312,7 @@ public class QNAPFileDecrypter {
 				+ "Note : in directory mode, both input and output arguments must be directories. Decipher operation is not recursive."
 				+ System.lineSeparator() + "END OF HELP", 3, 5, true, System.out);
 
-		System.exit(1);
+		System.exit(0); // make it return zero if help
 	}
 
 	/**
@@ -332,8 +332,8 @@ public class QNAPFileDecrypter {
 	/**
 	 * Apply Apache Commons CLI PosixParser to command-line arguments.
 	 * 
-	 * @param commandLineArguments
-	 *            Command-line arguments to be processed with Posix-style parser.
+	 * @param commandLineArguments Command-line arguments to be processed with
+	 *                             Posix-style parser.
 	 */
 	private static CommandLine usePosixParser(final String[] commandLineArguments) {
 		final CommandLineParser cmdLinePosixParser = new DefaultParser();
