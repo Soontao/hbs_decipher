@@ -9,6 +9,27 @@ on:
       - "*"
 
 jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        version: [8, 11, 15]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.version }}
+
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+
+      - name: Simple Test
+        run: java -jar target/hbs_decipher.jar
+
   build:
     runs-on: ${{ matrix.os }}
 
@@ -35,7 +56,7 @@ jobs:
 
       - run: native-image -jar hbs_decipher.jar
         working-directory: target
-      
+
       - uses: actions/upload-artifact@v2
         with:
           name: hbs_decipher_${{ runner.os }}.zip
